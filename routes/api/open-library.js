@@ -19,7 +19,6 @@ routes.get('/', async (req, res) => {
 
     try {
         const response = await axios.get(`https://openlibrary.org/search.json?q=${req.query.search_query}`)
-        console.log(req.query.search_query);
         if (isEmpty(response.data.docs)) {
             return res.status(404).json({message: "No books were found."})
         } else {
